@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Wczasowa77</title>
+    <link rel="icon" type="image/png" sizes="512x512" href="assets/img/273395.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="assets/img/273395.png">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto&amp;display=swap">
+    <link rel="stylesheet" href="assets/css/Articles-Cards-images.css">
+    <link rel="stylesheet" href="assets/css/Pricing-Clean-badges.css">
+    <link rel="stylesheet" href="assets/css/Pricing-Clean-icons.css">
+</head>
+
+<body style="font-family: Roboto, sans-serif;">
+    <section class="py-4 py-xl-5">
+        <div class="container d-xl-flex justify-content-xl-center align-items-xl-center">
+            <div class="bg-light border-5 d-flex flex-column justify-content-between flex-lg-row justify-content-xl-center align-items-xl-center p-4 p-md-5" style="border-radius: 5px;border: 1px solid rgb(210,210,210);">
+                <div class="pb-2 pb-lg-1" style="width: 100%;">
+                    <h1 class="fw-semibold text-center" id="MainHeading" style="font-family: Roboto, sans-serif;">Dostęp do sauny</h1><br/>
+                    <p style="text-align: justify;font-family: Roboto, sans-serif;">Gdy wybierzesz preferowany czas, zostaniesz przekierowany na stronę płatności. Po dokonaniu zapłaty w ciągu minuty panel sterowania do sauny zostanie aktywowany. Za pomocą tego panelu będziesz mógł uruchomić piec oraz ustawić wybraną temperaturę. W&nbsp;razie jakichkolwiek pytań prosimy o kontakt <span style="color: var(--bs-body-color); background-color: rgba(var(--bs-light-rgb),var(--bs-bg-opacity));">email:</span><br/><a href="mailto:Apartamenty77wczasowa90@gmail.com"><span style="color: var(--bs-link-color); background-color: rgba(var(--bs-light-rgb),var(--bs-bg-opacity));">apartamenty77wczasowa90@gmail.com</span></a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="visible py-4 py-xl-5" id="AdminPanel" style="display: block;">
+        <div class="container">
+            <div class="row d-flex justify-content-center">
+                <div class="col-md-6 col-xl-4">
+                    <div class="card mb-5">
+                        <div class="card-body d-flex flex-column align-items-center">
+                            <div class="mb-3"><input type="password" id="PasswordInput" name="password" placeholder="Hasło" autocomplete="off" style="font-family: Roboto, sans-serif;"></div>
+                            <div class="mb-3"><button class="btn btn-primary d-block w-100" id="AdminButton" type="button" style="font-family: Roboto, sans-serif;">Login</button></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="visible py-4 py-xl-5" id="AdminPanelSettings" style="display: none;">
+        <div class="container">
+            <div class="row d-flex justify-content-center">
+                <div class="col-md-6 col-xl-4">
+                    <div class="card mb-5">
+                        <div class="card-body d-flex flex-column align-items-center">
+                            <h5 class="text-center mb-3" style="font-family: Roboto, sans-serif;">Panel Administracyjny</h5>
+                            <p class="text-center" style="font-family: Roboto, sans-serif;">Wybierz liczbę minut na jaką sauna ma być aktywna</p>
+                            <div class="mb-3"><input type="text" id="AdminTimeSetInput" placeholder="Ustaw Czas" inputmode="numeric" autocomplete="off" style="font-family: Roboto, sans-serif;"></div>
+                            <div class="mb-3"><button class="btn btn-primary d-block w-100" id="AdminButtonSetTime" type="button" style="font-family: Roboto, sans-serif;">Ustaw</button></div>
+                            <hr class="w-100">
+                            <h6 class="text-center mb-3" style="font-family: Roboto, sans-serif;">Generuj Kupon</h6>
+                            <div class="mb-3"><input type="text" id="CouponTimeInput" placeholder="Czas w sekundach" inputmode="numeric" autocomplete="off" style="font-family: Roboto, sans-serif;"></div>
+                            <div class="mb-3"><input type="text" id="CouponNameInput" placeholder="Nazwa kuponu (opcjonalnie)" autocomplete="off" style="font-family: Roboto, sans-serif;"></div>
+                            <div class="mb-3"><button class="btn btn-success d-block w-100" id="AdminButtonGenerateCoupon" type="button" style="font-family: Roboto, sans-serif;">Generuj Kupon</button></div>
+                            <div class="mb-3"><button class="btn btn-info d-block w-100" id="AdminButtonListCoupons" type="button" style="font-family: Roboto, sans-serif;">Lista Kuponów</button></div>
+                            <div id="CouponResult" class="mt-3 text-center" style="font-family: Roboto, sans-serif;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="visible py-4 py-xl-5" id="CouponRedeemPanel" style="display: none;">
+        <div class="container">
+            <div class="row d-flex justify-content-center">
+                <div class="col-md-6 col-xl-4">
+                    <div class="card mb-5">
+                        <div class="card-body d-flex flex-column align-items-center">
+                            <h5 class="text-center mb-3" style="font-family: Roboto, sans-serif;">Zrealizuj Kupon</h5>
+                            <div class="mb-3"><input type="text" id="CouponCodeInput" placeholder="Wpisz kod kuponu" autocomplete="off" style="font-family: Roboto, sans-serif; text-transform: uppercase;"></div>
+                            <div class="mb-3"><button class="btn btn-primary d-block w-100" id="CouponRedeemButton" type="button" style="font-family: Roboto, sans-serif;">Zrealizuj</button></div>
+                            <div class="mb-3"><button class="btn btn-secondary d-block w-100" id="CouponCancelButton" type="button" style="font-family: Roboto, sans-serif;">Anuluj</button></div>
+                            <div id="CouponRedeemResult" class="mt-3 text-center" style="font-family: Roboto, sans-serif;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="container py-4 py-xl-5" id="ActiveDisplayTime" style="margin-top: -5%;">
+        <div class="row gy-4 row-cols-1 row-cols-md-2 row-cols-xl-3 d-xl-flex justify-content-xl-center align-items-xl-center">
+            <div class="col">
+                <div class="card h-100">
+                    <div class="card-body d-flex flex-column justify-content-between p-4">
+                        <div>
+                            <h6 class="text-muted d-flex d-xl-flex justify-content-center justify-content-xl-center" style="font-family: Roboto, sans-serif;">Sauna aktywna, pozostało:</h6>
+                            <h4 class="display-6 fw-bold d-flex d-xl-flex justify-content-center justify-content-xl-center" id="ActiveTimeText" style="font-family: Roboto, sans-serif;">&nbsp;</h4>
+                            <hr>
+                            <ul class="list-unstyled"></ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container py-4 py-xl-5" id="PrcingElement" style="margin-top: -5%;">
+        <div class="row gy-4 row-cols-1 row-cols-md-2 row-cols-xl-3">
+            <div class="col">
+                <div class="card h-100">
+                    <div class="card-body d-flex flex-column justify-content-between p-4">
+                        <div>
+                            <h6 class="text-muted d-flex d-xl-flex justify-content-center justify-content-xl-center align-items-xl-center" style="font-family: Roboto, sans-serif;">10 PLN</h6>
+                            <h4 class="display-6 fw-bold d-flex d-xl-flex justify-content-center justify-content-xl-center" style="font-family: Roboto, sans-serif;">30 MIN</h4>
+                            <hr>
+                        </div><a class="btn btn-primary d-block w-100" role="button" href="https://buy.stripe.com/8wMcP52rc7QJfNmbIK" style="background: rgb(18,116,209);font-family: Roboto, sans-serif;">Wybierz</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card border-primary border-2 h-100">
+                    <div class="card-body d-flex flex-column justify-content-between p-4"><span class="badge bg-primary position-absolute top-0 end-0 rounded-bottom-left text-uppercase d-xl-flex justify-content-xl-center" style="background: rgb(18,116,209);">NAJCZĘŚCIEJ WYBIERANE</span>
+                        <div>
+                            <h6 class="text-muted d-flex d-xl-flex justify-content-center justify-content-xl-center">15 PLN</h6>
+                            <h4 class="display-6 fw-bold d-flex d-xl-flex justify-content-center justify-content-xl-center">45 MIN</h4>
+                            <hr>
+                            <ul class="list-unstyled"></ul>
+                        </div><a class="btn btn-primary d-block w-100" role="button" href="https://buy.stripe.com/cN24iz8PAfjbbx66op" style="background: rgb(18,116,209);">Wybierz</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100">
+                    <div class="card-body d-flex flex-column justify-content-between p-4">
+                        <div>
+                            <h6 class="text-muted d-flex d-xl-flex justify-content-center justify-content-xl-center">20 PLN</h6>
+                            <h4 class="display-6 fw-bold d-flex d-xl-flex justify-content-center justify-content-xl-center">60 MIN</h4>
+                            <hr>
+                            <ul class="list-unstyled"></ul>
+                        </div><a class="btn btn-primary d-block w-100" role="button" href="https://buy.stripe.com/dR6eXd3vg7QJ0SsbIL" style="background: rgb(18,116,209);">Wybierz</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100">
+                    <div class="card-body d-flex flex-column justify-content-between p-4">
+                        <div>
+                            <h6 class="text-muted d-flex d-xl-flex justify-content-center justify-content-xl-center">Kupon</h6>
+                            <h4 class="display-6 fw-bold d-flex d-xl-flex justify-content-center justify-content-xl-center">Zrealizuj</h4>
+                            <hr>
+                            <ul class="list-unstyled"></ul>
+                        </div><button class="btn btn-primary d-block w-100" id="CouponCardButton" role="button" style="background: rgb(18,116,209);font-family: Roboto, sans-serif;">Zrealizuj kupon</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container py-4 py-xl-5" id="InstrukcjaHolder" style="margin-top: -3%;">
+        <div class="row gy-4 row-cols-1 row-cols-md-2 row-cols-xl-3">
+            <div class="col">
+                <div class="card"><img class="card-img-top w-100 d-block fit-cover" style="height: 200px;" src="assets/img/1.jpg">
+                    <div class="card-body p-4">
+                        <p class="text-center text-primary card-text mb-0" style="border-color: rgb(18,116,209);">Krok 1</p>
+                        <h4 class="text-center card-title">Zrealizuj płatność</h4>
+                        <p class="text-center card-text">Po wybraniu preferowanego czasu, przeniesiesz się na stronę płatności, gdzie opłacisz transakcję poprzez Blika&nbsp; lub kartę płatniczą</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card"><img class="card-img-top w-100 d-block fit-cover" style="height: 200px;" src="assets/img/2.jpg">
+                    <div class="card-body p-4">
+                        <p class="text-center text-primary card-text mb-0" style="border-color: rgb(18,116,209);">Krok 2</p>
+                        <h4 class="text-center card-title">Uruchom piec</h4>
+                        <p class="text-center card-text">Po dokonaniu płatności, w przeciągu kilkunastu sekund panel sterowania aktywuje się, umożliwiając uruchomienie pieca i ustawienie preferowanej temperatury.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card"><img class="card-img-top w-100 d-block fit-cover" style="height: 200px;" src="assets/img/3.jpg">
+                    <div class="card-body p-4">
+                        <p class="text-center text-primary card-text mb-0" style="border-color: rgb(18,116,209);">Krok 3</p>
+                        <h4 class="text-center card-title">Przyjemnego saunowania</h4>
+                        <p class="text-center card-text">W saunie znajdziesz drewniane wiaderko i chochlę - użyj ich, by polewać rozgrzewające się kamienie wodą. To działanie jest opcjonalne i zależy od Twoich preferencji.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <p class="text-center"><br/>&nbsp;<br/>&nbsp;<br/>.<br/></p>
+        <p class="text-center"><br/>&nbsp;<br/>&nbsp;<br/>.<br/></p>
+        <p class="text-center"><br/>&nbsp;<br/>&nbsp;<br/>.<br/></p>
+        <p class="text-center"><br/>&nbsp;<br/>&nbsp;<br/>.<br/></p>
+    </div>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/index.js"></script>
+</body>
+
+</html>
