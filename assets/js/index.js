@@ -280,3 +280,13 @@ document.getElementById("AdminButtonGenerateCoupon").addEventListener("click", a
 document.getElementById("AdminButtonListCoupons").addEventListener("click", (event) => {
     ListCoupons();
 });
+
+// Admin gear button - opens admin panel
+document.getElementById("AdminGearButton").addEventListener("click", (event) => {
+    if (!isAdminAuthenticated) {
+        document.getElementById("AdminPanel").style.display = 'block';
+        document.getElementById("CouponRedeemPanel").style.display = 'none';
+        // Scroll to admin panel
+        document.getElementById("AdminPanel").scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+});
