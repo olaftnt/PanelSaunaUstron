@@ -2,7 +2,6 @@ var AdminClicks = 0;
 var AdminPassword = null;
 var isAdminAuthenticated = false;
 var couponLongPressTimer = null;
-var isLongPress = false;
 var SERVER_URL = "https://sauna.olaf-tnt.workers.dev";
 
 UpdateActiveTimer();
@@ -18,14 +17,11 @@ function UpdateActiveTimer()
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-       var Active = Number(xhttp.responseText) > 0;
-       var ActiveTime = Math.round(Number(xhttp.responseText) / 60);
+       var remainingTime = Number(xhttp.responseText);
+       var Active = remainingTime > 0;
+       var ActiveTime = Math.round(remainingTime / 60);
 
-       if(ActiveTime == 0){
-           ActiveTime = 1;
-       }
-
-       if(Active)
+       if(Active && ActiveTime > 0)
        {
            document.getElementById("PrcingElement").style.display = 'none';
            document.getElementById("ActiveDisplayTime").style.display = 'block';
@@ -166,11 +162,39 @@ document.getElementById("CouponCodeInput").addEventListener("input", (event) => 
     event.target.value = event.target.value.toUpperCase();
 });
 
-// Coupon Redeem Button - Long press for admin
+// Coupon Redeem Button - Double click for admin on PC, long press for mobile
+var couponClickCount = 0;
+var couponClickTimer = null;
+
+function handleCouponButtonClick() {
+    couponClickCount++;
+    if (couponClickTimer) {
+        clearTimeout(couponClickTimer);
+    }
+    
+    couponClickTimer = setTimeout(function() {
+        if (couponClickCount === 1) {
+            // Single click - redeem coupon
+            var couponCode = document.getElementById("CouponCodeInput").value.trim();
+            if (couponCode) {
+                RedeemCoupon(couponCode);
+            } else {
+                document.getElementById("CouponRedeemResult").innerHTML = '<p class="text-danger">Wpisz kod kuponu</p>';
+            }
+        } else if (couponClickCount === 2) {
+            // Double click - show admin panel
+            if (!isAdminAuthenticated) {
+                document.getElementById("CouponRedeemPanel").style.display = 'none';
+                document.getElementById("AdminPanel").style.display = 'block';
+            }
+        }
+        couponClickCount = 0;
+    }, 300);
+}
+
+// Long press for mobile devices
 function handleLongPressStart() {
-    isLongPress = false;
     couponLongPressTimer = setTimeout(function() {
-        isLongPress = true;
         if (!isAdminAuthenticated) {
             document.getElementById("CouponRedeemPanel").style.display = 'none';
             document.getElementById("AdminPanel").style.display = 'block';
@@ -185,29 +209,12 @@ function handleLongPressEnd() {
     }
 }
 
-document.getElementById("CouponRedeemButton").addEventListener("mousedown", handleLongPressStart);
-document.getElementById("CouponRedeemButton").addEventListener("mouseup", handleLongPressEnd);
-document.getElementById("CouponRedeemButton").addEventListener("mouseleave", handleLongPressEnd);
+// PC: Double click for admin
+document.getElementById("CouponRedeemButton").addEventListener("click", handleCouponButtonClick);
 
-// Touch events for mobile
+// Mobile: Long press for admin
 document.getElementById("CouponRedeemButton").addEventListener("touchstart", handleLongPressStart);
 document.getElementById("CouponRedeemButton").addEventListener("touchend", handleLongPressEnd);
-
-// Redeem coupon on click (short press)
-document.getElementById("CouponRedeemButton").addEventListener("click", (event) => {
-    // Small delay to check if it was a long press
-    setTimeout(function() {
-        if (!isLongPress) {
-            var couponCode = document.getElementById("CouponCodeInput").value.trim();
-            if (couponCode) {
-                RedeemCoupon(couponCode);
-            } else {
-                document.getElementById("CouponRedeemResult").innerHTML = '<p class="text-danger">Wpisz kod kuponu</p>';
-            }
-        }
-        isLongPress = false;
-    }, 100);
-});
 
 // Cancel coupon redeem
 document.getElementById("CouponCancelButton").addEventListener("click", (event) => {
