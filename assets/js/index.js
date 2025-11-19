@@ -2,7 +2,7 @@ var AdminClicks = 0;
 var AdminPassword = null;
 var isAdminAuthenticated = false;
 var couponLongPressTimer = null;
-var SERVER_URL = "https://sauna.olaf-tnt.workers.dev";
+var SERVER_URL = "https://saunaustron.r-mzyk.workers.dev";
 
 UpdateActiveTimer();
 // AdminPanel is already hidden in HTML, only show when needed
