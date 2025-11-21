@@ -501,7 +501,7 @@ document.getElementById("AdminButtonGenerateCoupon").addEventListener("click", a
         document.getElementById("CouponNameInput").value = "";
         document.getElementById("CouponExpirationInput").value = "";
         // Refresh coupons list after successful generation
-        ListCoupons();
+        //ListCoupons();
     } catch(error) {
         resultDiv.innerHTML = '<p class="text-danger">Błąd: ' + error.message + '</p>';
     }
